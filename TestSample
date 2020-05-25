@@ -1,0 +1,48 @@
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
+
+public class TestSample : MonoBehaviour {
+
+    enum TIME_TYPE {
+        MORNING,
+        AFTERNOON,
+        EVENING,
+        NIGHT,
+    }
+
+    enum DAY_TYPE {
+        SUNDAY,
+        MANDAY,
+        TUESDAY,
+        WEDNESDAY,
+        THURSDAY,
+        FRIDAY,
+        SATURDAY
+    }
+
+    enum SEASON_TYPE {
+        SPRING,
+        SUMMER,
+        AUTUMN,
+        WINTER
+    }
+
+    DAY_TYPE dayType;
+    TIME_TYPE[] timeTypeArray;
+    List<SEASON_TYPE> seasonTypeList = new List<SEASON_TYPE>();
+
+    void Start() {
+        // 文字列を引数で渡した種類のEnumに変換
+        string day = "friday";
+        dayType = ConvertEnumType.GetEnumTypeFromString<DAY_TYPE>(day);
+
+        // 配列の場合
+        string times = "NIGHT,afternoon,Morning";
+        timeTypeArray = times.Split(',').Select(ConvertEnumType.GetEnumTypeFromString<TIME_TYPE>).ToArray();
+
+        // Listの場合
+        string seasons = "summer,Winter,spring,AUTUMN";
+        seasonTypeList = seasons.Split(',').Select(ConvertEnumType.GetEnumTypeFromString<SEASON_TYPE>).ToList();
+    }
+}
