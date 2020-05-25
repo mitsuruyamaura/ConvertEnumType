@@ -33,7 +33,7 @@ public class TestSample : MonoBehaviour {
     List<SEASON_TYPE> seasonTypeList = new List<SEASON_TYPE>();
 
     void Start() {
-        // 文字列を引数で渡した種類のEnumに変換
+        // 文字列を引数で渡した種類のEnumに変換(文字列の大文字小文字は区別せずにEnum変換可能)
         string day = "friday";
         dayType = ConvertEnumType.GetEnumTypeFromString<DAY_TYPE>(day);
 
