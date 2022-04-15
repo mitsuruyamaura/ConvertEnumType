@@ -1,6 +1,6 @@
 using System;
 
-namespace YamaP.WarCardGame {
+namespace YamaP.Util {
 
     /// <summary>
     /// string => enumへの変換用クラス
