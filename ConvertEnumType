@@ -1,14 +1,17 @@
 using System;
 
-/// <summary>
-/// string => enumへの変換用クラス
-/// </summary>
-public class ConvertEnumType
-{
+namespace YamaP.WarCardGame {
+
     /// <summary>
-    /// stringを指定したタイプのEnumに変換する
+    /// string => enumへの変換用クラス
     /// </summary>
-    public static IEnum FromString<IEnum>(string str) where IEnum : struct {
-        return (IEnum)Enum.Parse(typeof(IEnum), str, true);
+    public class ConvertEnumType
+    {
+        /// <summary>
+        /// stringを指定したタイプのEnumに変換する
+        /// </summary>
+        public static IEnum FromString<IEnum>(string str) where IEnum : struct {
+            return (IEnum)Enum.Parse(typeof(IEnum), str, true);
+        }
     }
 }
